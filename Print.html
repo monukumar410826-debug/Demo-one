@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eprint Hub – Digital Marketing, Graphic Design & Printing Solutions</title>
+  <meta name="description" content="Eprint Hub – Professional Digital Marketing, Graphic Design & Printing Solutions in Aligarh. Call 7248559734."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+:root{
+  --primary:#6c3ff5;--primary-dark:#5228e0;--secondary:#ff6b35;
+  --accent:#00d4aa;--dark:#0f0e17;--dark-2:#1a1832;--dark-3:#252344;
+  --light:#f8f9ff;--text:#4a4870;--text-light:#8888b0;--white:#fff;
+  --border:rgba(108,63,245,.15);--shadow:0 10px 40px rgba(108,63,245,.12);
+  --shadow-h:0 20px 60px rgba(108,63,245,.25);--radius:16px;--radius-sm:8px;
+  --tr:all .35s cubic-bezier(.4,0,.2,1);--font:'Poppins',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--text);background:var(--light);overflow-x:hidden}
+a{text-decoration:none;color:inherit;transition:var(--tr)}
+ul{list-style:none}
+img{max-width:100%}
+input,textarea,select{font-family:var(--font)}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--light)}
+::-webkit-scrollbar-thumb{background:var(--primary);border-radius:3px}
+/* PRELOADER */
+#preloader{position:fixed;inset:0;background:var(--dark);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;transition:opacity .5s,visibility .5s}
+#preloader.hidden{opacity:0;visibility:hidden}
+.loader-ring{width:60px;height:60px}
+.loader-ring span{display:block;width:100%;height:100%;border-radius:50%;border:4px solid transparent;border-top-color:var(--primary);border-right-color:var(--secondary);animation:spin .9s linear infinite}
+.loader-text{color:#fff;font-size:1.2rem;font-weight:700;letter-spacing:2px}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* UTILS */
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.section{padding:100px 0}
+.section-header{text-align:center;margin-bottom:60px}
+.section-tag{display:inline-block;background:rgba(108,63,245,.1);color:var(--primary);font-size:.8rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:16px}
+.section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:var(--dark);line-height:1.2;margin-bottom:16px}
+.section-header>p{color:var(--text-light);font-size:1.05rem;max-width:550px;margin:0 auto}
+.gradient-text{background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:50px;font-weight:600;font-size:.95rem;cursor:pointer;border:none;transition:var(--tr);text-decoration:none}
+.btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;box-shadow:0 8px 24px rgba(108,63,245,.35)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(108,63,245,.45)}
+.btn-outline{background:transparent;color:var(--primary);border:2px solid var(--primary)}
+.btn-outline:hover{background:var(--primary);color:#fff;transform:translateY(-3px)}
+.btn-full{width:100%;justify-content:center}
+/* HEADER */
+#header{position:fixed;top:0;left:0;right:0;z-index:1000;background:transparent;transition:var(--tr)}
+#header.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(20px);box-shadow:0 2px 30px rgba(0,0,0,.08)}
+.navbar{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--primary),var(--secondary));border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem}
+.logo-text{font-size:1.4rem;font-weight:800;color:var(--dark)}
+.logo-text .accent{color:var(--secondary)}
+.nav-links{display:flex;align-items:center;gap:8px}
+.nav-link{padding:8px 14px;border-radius:8px;font-weight:500;font-size:.9rem;color:var(--dark);transition:var(--tr)}
+#header:not(.scrolled) .nav-link{color:#fff}
+.nav-link:hover,.nav-link.active{color:var(--primary);background:rgba(108,63,245,.08)}
+#header:not(.scrolled) .nav-link:hover{color:#fff;background:rgba(255,255,255,.15)}
+.nav-cta{padding:10px 24px;font-size:.9rem}
+#header:not(.scrolled) .nav-cta{background:rgba(255,255,255,.15);box-shadow:none;border:1px solid rgba(255,255,255,.4)}
+#header:not(.scrolled) .nav-cta:hover{background:#fff;color:var(--primary)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:26px;height:2px;border-radius:2px;background:#fff;transition:var(--tr)}
+#header.scrolled .hamburger span{background:var(--dark)}
+/* HERO */
+.hero{min-height:100vh;position:relative;overflow:hidden;background:linear-gradient(135deg,#0f0e17 0%,#1a1832 50%,#252344 100%);display:flex;flex-direction:column;justify-content:center}
+.hero-bg-shapes{position:absolute;inset:0;pointer-events:none}
+.shape{position:absolute;border-radius:50%;opacity:.06;filter:blur(60px)}
+.shape-1{width:600px;height:600px;top:-200px;right:-150px;background:var(--primary)}
+.shape-2{width:400px;height:400px;bottom:-100px;left:-100px;background:var(--secondary)}
+.shape-3{width:300px;height:300px;top:50%;left:40%;background:var(--accent)}
+.hero-content{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding-top:90px;padding-bottom:60px}
+.hero-text{z-index:1}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#e0d9ff;font-size:.82rem;font-weight:500;padding:8px 18px;border-radius:20px;margin-bottom:24px;backdrop-filter:blur(10px)}
+.hero-text h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:20px}
+.hero-sub{color:#a8a4cc;font-size:1.05rem;line-height:1.8;margin-bottom:36px;max-width:520px}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:48px}
+.hero-stats{display:flex;align-items:center;gap:24px}
+.stat{text-align:center}
+.stat strong{font-size:2rem;font-weight:800;color:#fff}
+.stat span{font-size:1.4rem;color:var(--secondary);font-weight:700}
+.stat small{display:block;color:#a8a4cc;font-size:.8rem;margin-top:2px}
+.divider-v{width:1px;height:40px;background:rgba(255,255,255,.15)}
+.hero-visual{display:flex;align-items:center;justify-content:center;z-index:1}
+.hero-card-stack{position:relative;width:340px;height:340px}
+.hero-circle{width:180px;height:180px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--secondary));display:flex;align-items:center;justify-content:center;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);box-shadow:0 0 60px rgba(108,63,245,.4)}
+.brand-initials{font-size:2.4rem;font-weight:900;color:#fff;letter-spacing:2px}
+.hero-card{position:absolute;display:flex;flex-direction:column;align-items:center;gap:6px;background:rgba(255,255,255,.1);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:16px 20px;color:#fff;font-size:.78rem;font-weight:600;animation:float 3s ease-in-out infinite;white-space:nowrap}
+.hero-card i{font-size:1.4rem}
+.card-1{top:0;left:-10px;animation-delay:0s}.card-1 i{color:#60a5fa}
+.card-2{top:0;right:-10px;animation-delay:1s}.card-2 i{color:#f472b6}
+.card-3{bottom:20px;left:50%;transform:translateX(-50%);animation-delay:2s}.card-3 i{color:#34d399}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.card-3{animation:float3 3s ease-in-out 2s infinite}
+@keyframes float3{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-12px)}}
+.scroll-down-btn{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);width:42px;height:42px;border-radius:50%;border:2px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;color:#fff;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-8px)}}
+/* TICKER */
+.ticker-wrap{background:linear-gradient(135deg,var(--primary),var(--primary-dark));overflow:hidden;padding:14px 0;white-space:nowrap}
+.ticker{display:inline-block;animation:ticker 30s linear infinite;font-size:.9rem;font-weight:600;color:rgba(255,255,255,.85);letter-spacing:1px}
+.ticker span{margin:0 20px}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+/* ABOUT */
+.about{background:#fff}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-img-wrap{position:relative;padding:30px}
+.about-img-bg{width:100%;aspect-ratio:1;border-radius:24px;background:linear-gradient(135deg,rgba(108,63,245,.1),rgba(255,107,53,.1));border:2px dashed var(--border)}
+.founder-card{position:absolute;bottom:-10px;left:10px;background:#fff;border-radius:16px;padding:16px 20px;box-shadow:var(--shadow);display:flex;align-items:center;gap:16px}
+.founder-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--secondary));display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.4rem}
+.founder-info strong{display:block;font-weight:700;color:var(--dark)}
+.founder-info small{color:var(--text-light);font-size:.8rem}
+.exp-badge{position:absolute;top:-10px;right:0;background:var(--secondary);color:#fff;border-radius:14px;padding:12px 18px;text-align:center;box-shadow:0 8px 24px rgba(255,107,53,.35)}
+.exp-badge strong{display:block;font-size:1.6rem;font-weight:800;line-height:1}
+.exp-badge span{font-size:.72rem;font-weight:600;opacity:.9}
+.about-text p{color:var(--text);line-height:1.8;margin-bottom:16px}
+.about-features{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:24px 0 32px}
+.about-features li{display:flex;align-items:center;gap:8px;color:var(--dark);font-weight:500;font-size:.92rem}
+.about-features li i{color:var(--primary)}
+/* SERVICES */
+.services{background:var(--light)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.service-card{background:#fff;border-radius:var(--radius);padding:36px 30px;box-shadow:var(--shadow);transition:var(--tr);position:relative;overflow:hidden;border:1px solid var(--border)}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--primary),var(--secondary));transform:scaleX(0);transform-origin:left;transition:var(--tr)}
+.service-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-h)}
+.service-card:hover::before{transform:scaleX(1)}
+.service-card.featured{background:linear-gradient(135deg,var(--dark),var(--dark-3));border-color:var(--primary)}
+.service-card.featured h3{color:#fff}
+.service-card.featured p,.service-card.featured .service-list li{color:rgba(255,255,255,.8)}
+.service-card.featured .service-link{color:#a78bfa}
+.featured-badge{display:inline-block;background:var(--secondary);color:#fff;font-size:.72rem;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:20px;letter-spacing:1px}
+.service-icon{width:64px;height:64px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:#fff;margin-bottom:24px}
+.bg-blue{background:linear-gradient(135deg,#667eea,#764ba2)}
+.bg-purple{background:linear-gradient(135deg,#a855f7,#ec4899)}
+.bg-orange{background:linear-gradient(135deg,#f97316,#ef4444)}
+.service-card h3{font-size:1.25rem;font-weight:700;color:var(--dark);margin-bottom:12px}
+.service-card p{color:var(--text);font-size:.92rem;line-height:1.7;margin-bottom:20px}
+.service-list{margin-bottom:24px;display:flex;flex-direction:column;gap:8px}
+.service-list li{font-size:.88rem;color:var(--text);display:flex;align-items:center;gap:8px}
+.service-list li i{color:var(--primary);font-size:.7rem}
+.service-card.featured .service-list li i{color:#a78bfa}
+.service-link{font-weight:600;color:var(--primary);font-size:.9rem;display:flex;align-items:center;gap:6px}
+.service-link i{transition:var(--tr)}
+.service-link:hover i{transform:translateX(4px)}
+/* WHY US */
+.why-us{background:var(--dark)}
+.why-us .section-title{color:#fff}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.why-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:32px 24px;text-align:center;transition:var(--tr)}
+.why-card:hover{background:rgba(108,63,245,.15);border-color:rgba(108,63,245,.4);transform:translateY(-6px)}
+.why-icon{width:60px;height:60px;border-radius:14px;margin:0 auto 20px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:#fff}
+.why-card h4{font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:10px}
+.why-card p{color:#a8a4cc;font-size:.88rem;line-height:1.7}
+/* PORTFOLIO */
+.portfolio{background:#fff}
+.portfolio-filters{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:40px}
+.filter-btn{padding:10px 22px;border-radius:50px;border:2px solid var(--border);background:transparent;color:var(--text);font-family:var(--font);font-weight:600;font-size:.88rem;cursor:pointer;transition:var(--tr)}
+.filter-btn.active,.filter-btn:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.portfolio-item{border-radius:var(--radius);overflow:hidden;position:relative;cursor:pointer;aspect-ratio:4/3}
+.portfolio-item.hidden{display:none}
+.portfolio-img{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;color:rgba(255,255,255,.5);transition:var(--tr)}
+.portfolio-item:hover .portfolio-img{transform:scale(1.05)}
+.portfolio-overlay{position:absolute;inset:0;background:rgba(15,14,23,.85);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:var(--tr);gap:8px}
+.portfolio-item:hover .portfolio-overlay{opacity:1}
+.portfolio-overlay h4{color:#fff;font-weight:700;font-size:1.05rem}
+.portfolio-overlay span{color:var(--primary);font-size:.8rem;font-weight:600;background:rgba(108,63,245,.2);padding:4px 12px;border-radius:20px}
+/* TESTIMONIALS */
+.testimonials{background:linear-gradient(135deg,rgba(108,63,245,.05),rgba(255,107,53,.05))}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.testi-card{background:#fff;border-radius:var(--radius);padding:32px;box-shadow:var(--shadow);border:1px solid var(--border);transition:var(--tr)}
+.testi-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-h)}
+.stars{color:#f59e0b;font-size:1.1rem;margin-bottom:16px;letter-spacing:2px}
+.testi-card p{color:var(--text);font-size:.92rem;line-height:1.8;margin-bottom:24px;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:14px}
+.testi-avatar{width:46px;height:46px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--primary),var(--secondary));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.1rem}
+.testi-author strong{display:block;color:var(--dark);font-weight:700;font-size:.95rem}
+.testi-author small{color:var(--text-light);font-size:.8rem}
+/* CONTACT */
+.contact{background:var(--light)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:start}
+.contact-info{display:flex;flex-direction:column;gap:20px}
+.info-card{background:#fff;border-radius:var(--radius-sm);padding:20px;display:flex;gap:16px;align-items:flex-start;box-shadow:0 4px 16px rgba(0,0,0,.05);border:1px solid var(--border)}
+.info-icon{width:44px;height:44px;flex-shrink:0;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem}
+.info-card strong{display:block;color:var(--dark);font-weight:700;margin-bottom:4px}
+.info-card p,.info-card a{color:var(--text);font-size:.9rem}
+.info-card a:hover{color:var(--primary)}
+.social-links{display:flex;gap:10px;flex-wrap:wrap}
+.social-btn{width:42px;height:42px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text);font-size:.95rem;transition:var(--tr)}
+.social-btn:hover{background:var(--primary);border-color:var(--primary);color:#fff;transform:translateY(-3px)}
+.social-btn.whatsapp:hover{background:#25d366;border-color:#25d366}
+.contact-form-wrap{background:#fff;border-radius:var(--radius);padding:40px;box-shadow:var(--shadow);border:1px solid var(--border)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
+.form-group label{font-weight:600;font-size:.88rem;color:var(--dark)}
+.form-group input,.form-group select,.form-group textarea{padding:12px 16px;border:2px solid var(--border);border-radius:var(--radius-sm);font-size:.92rem;color:var(--dark);background:var(--light);transition:var(--tr);outline:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--primary);background:#fff;box-shadow:0 0 0 3px rgba(108,63,245,.1)}
+.form-group textarea{resize:vertical;min-height:110px}
+.form-success{display:none;color:#22c55e;font-weight:600;font-size:.9rem;text-align:center;margin-top:12px}
+/* MAP */
+.map-section{line-height:0}
+.map-section iframe{display:block;filter:grayscale(15%)}
+/* FOOTER */
+.footer{background:var(--dark);color:rgba(255,255,255,.7)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1.4fr 1.6fr;gap:48px;padding:70px 24px 50px}
+.footer-brand p{font-size:.88rem;line-height:1.8;margin:16px 0 24px;max-width:280px}
+.footer-brand .logo-text{color:#fff}
+.footer-links h4,.footer-contact h4{color:#fff;font-size:1rem;font-weight:700;margin-bottom:20px}
+.footer-links ul{display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-size:.88rem;transition:var(--tr)}
+.footer-links a:hover{color:var(--primary);padding-left:6px}
+.footer-contact p{font-size:.88rem;margin-bottom:12px;display:flex;align-items:flex-start;gap:10px}
+.footer-contact i{color:var(--primary);margin-top:2px;flex-shrink:0}
+.footer-contact a:hover{color:var(--primary)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:20px 24px;text-align:center;font-size:.84rem;color:rgba(255,255,255,.5)}
+/* FLOATING */
+.whatsapp-float{position:fixed;bottom:28px;right:28px;z-index:900;width:58px;height:58px;border-radius:50%;background:#25d366;color:#fff;font-size:1.6rem;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(37,211,102,.5);transition:var(--tr);animation:pulse-wa 2s ease infinite}
+.whatsapp-float:hover{transform:scale(1.1);color:#fff}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 20px rgba(37,211,102,.5)}50%{box-shadow:0 6px 40px rgba(37,211,102,.7)}}
+#backToTop{position:fixed;bottom:100px;right:28px;z-index:900;width:46px;height:46px;border-radius:50%;border:none;cursor:pointer;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;font-size:1rem;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(108,63,245,.4);transition:var(--tr);opacity:0;visibility:hidden;transform:translateY(10px)}
+#backToTop.visible{opacity:1;visibility:visible;transform:translateY(0)}
+#backToTop:hover{transform:translateY(-3px)}
+/* AOS */
+[data-aos]{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+[data-aos="fade-right"]{transform:translateX(-30px)}
+[data-aos="fade-left"]{transform:translateX(30px)}
+[data-aos="zoom-in"]{transform:scale(.9) translateY(10px)}
+[data-aos].aos-animate{opacity:1;transform:none}
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .hero-content{grid-template-columns:1fr;text-align:center}
+  .hero-visual{display:none}
+  .hero-btns{justify-content:center}
+  .hero-stats{justify-content:center}
+  .hero-sub{margin:0 auto 36px}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .about-visual{display:none}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .testimonials-grid{grid-template-columns:1fr 1fr}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .contact-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .section{padding:70px 0}
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .nav-links.open{display:flex;flex-direction:column;position:fixed;top:72px;left:0;right:0;bottom:0;background:rgba(15,14,23,.97);backdrop-filter:blur(20px);align-items:center;justify-content:center;gap:20px;z-index:999}
+  .nav-links.open .nav-link{font-size:1.2rem;color:#fff}
+  .services-grid{grid-template-columns:1fr}
+  .portfolio-grid{grid-template-columns:1fr 1fr}
+  .testimonials-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr;gap:32px}
+  .form-row{grid-template-columns:1fr}
+  .about-features{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .portfolio-grid{grid-template-columns:1fr}
+  .hero-stats{gap:16px}
+}
+</style>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <div class="loader-ring"><span></span></div>
+  <p class="loader-text">Eprint Hub</p>
+</div>
+
+<!-- HEADER -->
+<header id="header">
+  <nav class="navbar container">
+    <a href="#home" class="logo">
+      <span class="logo-icon"><i class="fa-solid fa-print"></i></span>
+      <span class="logo-text">Eprint<span class="accent">Hub</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home"      class="nav-link active">Home</a></li>
+      <li><a href="#about"     class="nav-link">About</a></li>
+      <li><a href="#services"  class="nav-link">Services</a></li>
+      <li><a href="#why-us"    class="nav-link">Why Us</a></li>
+      <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+      <li><a href="#contact"   class="nav-link">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-primary nav-cta">Get a Quote</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="hero-bg-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+  </div>
+  <div class="container hero-content">
+    <div class="hero-text" data-aos="fade-right">
+      <span class="badge">🏆 Aligarh's Trusted Creative Studio</span>
+      <h1>Grow Your Brand With <span class="gradient-text">Eprint Hub</span></h1>
+      <p class="hero-sub">We combine powerful Digital Marketing, stunning Graphic Design, and high-quality Printing Solutions to elevate your business — online &amp; offline.</p>
+      <div class="hero-btns">
+        <a href="#services" class="btn btn-primary">Explore Services <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="#contact"  class="btn btn-outline">Contact Us</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong class="counter" data-target="500">0</strong><span>+</span><small>Clients</small></div>
+        <div class="divider-v"></div>
+        <div class="stat"><strong class="counter" data-target="1200">0</strong><span>+</span><small>Projects</small></div>
+        <div class="divider-v"></div>
+        <div class="stat"><strong class="counter" data-target="5">0</strong><span>+</span><small>Years Exp.</small></div>
+      </div>
+    </div>
+    <div class="hero-visual" data-aos="fade-left">
+      <div class="hero-card-stack">
+        <div class="hero-card card-1"><i class="fa-solid fa-bullhorn"></i><span>Digital Marketing</span></div>
+        <div class="hero-card card-2"><i class="fa-solid fa-pen-nib"></i><span>Graphic Design</span></div>
+        <div class="hero-card card-3"><i class="fa-solid fa-print"></i><span>Printing Solution</span></div>
+        <div class="hero-circle"><span class="brand-initials">EH</span></div>
+      </div>
+    </div>
+  </div>
+  <a href="#about" class="scroll-down-btn"><i class="fa-solid fa-chevron-down"></i></a>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span>Digital Marketing</span> ✦ <span>Social Media Management</span> ✦
+    <span>SEO Optimization</span> ✦ <span>Logo Design</span> ✦
+    <span>Brochure Design</span> ✦ <span>Banner Printing</span> ✦
+    <span>Flex Printing</span> ✦ <span>Visiting Cards</span> ✦
+    <span>Brand Identity</span> ✦ <span>Offset Printing</span> ✦
+    <span>Digital Marketing</span> ✦ <span>Social Media Management</span> ✦
+    <span>SEO Optimization</span> ✦ <span>Logo Design</span> ✦
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="section about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual" data-aos="fade-right">
+        <div class="about-img-wrap">
+          <div class="about-img-bg"> <img src="" alt=""> </div>
+          <div class="founder-card">
+            <div class="founder-avatar"><i class="fa-solid fa-user-tie"></i></div>
+            <div class="founder-info"><strong>Imran Khan</strong><small>Founder & CEO</small></div>
+          </div>
+          <div class="exp-badge"><strong>5+</strong><span>Years of Excellence</span></div>
+        </div>
+      </div>
+      <div class="about-text" data-aos="fade-left">
+        <span class="section-tag">About Us</span>
+        <h2 class="section-title">We Are <span class="gradient-text">Eprint Hub</span></h2>
+        <p>Founded by <strong>Imran Khan</strong>, Eprint Hub is a full-service creative and marketing agency based in <strong>Aligarh</strong>. We empower businesses with cutting-edge digital strategies, eye-catching designs, and premium print materials.</p>
+        <p>Our mission is simple — deliver creative excellence that drives real-world results. Whether you're a startup or an established brand, we tailor our services to fit your unique needs and budget.</p>
+        <ul class="about-features">
+          <li><i class="fa-solid fa-check-circle"></i> Creative Excellence</li>
+          <li><i class="fa-solid fa-check-circle"></i> Timely Delivery</li>
+          <li><i class="fa-solid fa-check-circle"></i> Affordable Pricing</li>
+          <li><i class="fa-solid fa-check-circle"></i> 100% Client Satisfaction</li>
+          <li><i class="fa-solid fa-check-circle"></i> End-to-End Solutions</li>
+          <li><i class="fa-solid fa-check-circle"></i> Experienced Team</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Work With Us <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section services">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-tag">What We Offer</span>
+      <h2 class="section-title">Our Core <span class="gradient-text">Services</span></h2>
+      <p>Everything your brand needs — under one roof.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card" data-aos="fade-up">
+        <div class="service-icon bg-blue"><i class="fa-solid fa-bullhorn"></i></div>
+        <h3>Digital Marketing</h3>
+        <p>Boost your online presence with data-driven strategies that attract, engage, and convert your ideal audience.</p>
+        <ul class="service-list">
+          <li><i class="fa-solid fa-angle-right"></i> Social Media Marketing</li>
+          <li><i class="fa-solid fa-angle-right"></i> Search Engine Optimization</li>
+          <li><i class="fa-solid fa-angle-right"></i> Google & Facebook Ads</li>
+          <li><i class="fa-solid fa-angle-right"></i> Content Marketing</li>
+          <li><i class="fa-solid fa-angle-right"></i> Email Marketing</li>
+          <li><i class="fa-solid fa-angle-right"></i> Brand Awareness Campaigns</li>
+        </ul>
+        <a href="#contact" class="service-link">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card featured" data-aos="fade-up" data-aos-delay="100">
+        <div class="featured-badge">Most Popular</div>
+        <div class="service-icon bg-purple"><i class="fa-solid fa-pen-nib"></i></div>
+        <h3>Graphic Design</h3>
+        <p>Visually stunning designs that tell your brand story and leave a lasting impression across all platforms.</p>
+        <ul class="service-list">
+          <li><i class="fa-solid fa-angle-right"></i> Logo & Brand Identity</li>
+          <li><i class="fa-solid fa-angle-right"></i> Brochure & Flyer Design</li>
+          <li><i class="fa-solid fa-angle-right"></i> Social Media Graphics</li>
+          <li><i class="fa-solid fa-angle-right"></i> Business Card Design</li>
+          <li><i class="fa-solid fa-angle-right"></i> Packaging Design</li>
+          <li><i class="fa-solid fa-angle-right"></i> UI/UX Mockups</li>
+        </ul>
+        <a href="#contact" class="service-link">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-icon bg-orange"><i class="fa-solid fa-print"></i></div>
+        <h3>Printing Solution</h3>
+        <p>Premium-quality printing with precision and speed — from small cards to large-format banners.</p>
+        <ul class="service-list">
+          <li><i class="fa-solid fa-angle-right"></i> Flex & Vinyl Banners</li>
+          <li><i class="fa-solid fa-angle-right"></i> Visiting Cards</li>
+          <li><i class="fa-solid fa-angle-right"></i> Brochures & Catalogues</li>
+          <li><i class="fa-solid fa-angle-right"></i> Offset Printing</li>
+          <li><i class="fa-solid fa-angle-right"></i> Stickers & Labels</li>
+          <li><i class="fa-solid fa-angle-right"></i> Promotional Materials</li>
+        </ul>
+        <a href="#contact" class="service-link">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why-us" class="section why-us">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-tag">Why Choose Us</span>
+      <h2 class="section-title">Reasons to Partner With <span class="gradient-text">Eprint Hub</span></h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card" data-aos="zoom-in"><div class="why-icon"><i class="fa-solid fa-trophy"></i></div><h4>Quality First</h4><p>Every project is crafted with meticulous attention to detail — no compromise ever.</p></div>
+      <div class="why-card" data-aos="zoom-in" data-aos-delay="80"><div class="why-icon"><i class="fa-solid fa-clock"></i></div><h4>On-Time Delivery</h4><p>Deadlines matter. We commit and deliver — always on schedule.</p></div>
+      <div class="why-card" data-aos="zoom-in" data-aos-delay="160"><div class="why-icon"><i class="fa-solid fa-wallet"></i></div><h4>Affordable Rates</h4><p>Premium services at budget-friendly prices — great value for all businesses.</p></div>
+      <div class="why-card" data-aos="zoom-in" data-aos-delay="240"><div class="why-icon"><i class="fa-solid fa-headset"></i></div><h4>24/7 Support</h4><p>Our team is always available to assist you at every step of the project.</p></div>
+      <div class="why-card" data-aos="zoom-in" data-aos-delay="320"><div class="why-icon"><i class="fa-solid fa-layer-group"></i></div><h4>One-Stop Shop</h4><p>From digital to print — everything under one roof without multiple vendors.</p></div>
+      <div class="why-card" data-aos="zoom-in" data-aos-delay="400"><div class="why-icon"><i class="fa-solid fa-star"></i></div><h4>Proven Results</h4><p>500+ satisfied clients and 1200+ successful projects speak for themselves.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" class="section portfolio">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-tag">Our Work</span>
+      <h2 class="section-title">Featured <span class="gradient-text">Portfolio</span></h2>
+      <p>A glimpse of the creative work we've done for our clients.</p>
+    </div>
+    <div class="portfolio-filters" data-aos="fade-up">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="digital">Digital Marketing</button>
+      <button class="filter-btn" data-filter="design">Graphic Design</button>
+      <button class="filter-btn" data-filter="print">Printing</button>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-item" data-category="digital" data-aos="fade-up">
+        <div class="portfolio-img" style="background:linear-gradient(135deg,#667eea,#764ba2)"><i class="fa-solid fa-chart-line"></i></div>
+        <div class="portfolio-overlay"><h4>Social Media Campaign</h4><span>Digital Marketing</span></div>
+      </div>
+      <div class="portfolio-item" data-category="design" data-aos="fade-up" data-aos-delay="80">
+        <div class="portfolio-img" style="background:linear-gradient(135deg,#f093fb,#f5576c)"><i class="fa-solid fa-palette"></i></div>
+        <div class="portfolio-overlay"><h4>Brand Identity Design</h4><span>Graphic Design</span></div>
+      </div>
+      <div class="portfolio-item" data-category="print" data-aos="fade-up" data-aos-delay="160">
+        <div class="portfolio-img" style="background:linear-gradient(135deg,#4facfe,#00f2fe)"><i class="fa-solid fa-newspaper"></i></div>
+        <div class="portfolio-overlay"><h4>Brochure & Catalogue</h4><span>Printing Solution</span></div>
+      </div>
+      <div class="portfolio-item" data-category="digital" data-aos="fade-up">
+        <div class="portfolio-img" style="background:linear-gradient(135deg,#43e97b,#38f9d7)"><i class="fa-brands fa-google"></i></div>
+        <div class="portfolio-overlay"><h4>Google Ads Campaign</h4><span>Digital Marketing</span></div>
+      </div>
+      <div class="portfolio-item" data-category="design" data-aos="fade-up" data-aos-delay="80">
+        <div class="portfolio-img" style="background:linear-gradient(135deg,#fa709a,#fee140)"><i class="fa-solid fa-id-card"></i></div>
+        <div class="portfolio-overlay"><h4>Business Card Collection</h4><span>Graphic Design</span></div>
+      </div>
+      <div class="portfolio-item" data-category="print" data-aos="fade-up" data-aos-delay="160">
+        <div class="portfolio-img" style="background:linear-gradient(135deg,#a18cd1,#fbc2eb)"><i class="fa-solid fa-flag"></i></div>
+        <div class="portfolio-overlay"><h4>Large Format Banner</h4><span>Printing Solution</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-tag">Client Love</span>
+      <h2 class="section-title">What Our Clients <span class="gradient-text">Say</span></h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testi-card" data-aos="fade-up">
+        <div class="stars">★★★★★</div>
+        <p>"Eprint Hub completely transformed our brand! The logo design and social media marketing exceeded our expectations. Highly recommended!"</p>
+        <div class="testi-author"><div class="testi-avatar">R</div><div><strong>Rahul Sharma</strong><small>Retail Shop Owner, Aligarh</small></div></div>
+      </div>
+      <div class="testi-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="stars">★★★★★</div>
+        <p>"Professional team, amazing quality prints, and super fast delivery. Imran bhai and his team are simply the best in Aligarh!"</p>
+        <div class="testi-author"><div class="testi-avatar">A</div><div><strong>Aisha Siddiqui</strong><small>Boutique Owner, Aligarh</small></div></div>
+      </div>
+      <div class="testi-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="stars">★★★★★</div>
+        <p>"Our business grew 3x after Eprint Hub handled our digital marketing. They genuinely care about results!"</p>
+        <div class="testi-author"><div class="testi-avatar">M</div><div><strong>Mohammad Arif</strong><small>Restaurant Owner, Aligarh</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section contact">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-tag">Get In Touch</span>
+      <h2 class="section-title">Contact <span class="gradient-text">Eprint Hub</span></h2>
+      <p>Ready to grow your brand? Let's talk!</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info" data-aos="fade-right">
+        <div class="info-card">
+          <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div><strong>Our Address</strong><p>Ram Ghat Road, Aligarh, Uttar Pradesh</p></div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+          <div><strong>Call / WhatsApp</strong><p><a href="tel:7248559734">+91 72485 59734</a></p></div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+          <div><strong>Email Us</strong><p><a href="mailto:eprinthub0@gmail.com">eprinthub0@gmail.com</a></p></div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon"><i class="fa-solid fa-clock"></i></div>
+          <div><strong>Working Hours</strong><p>Mon – Sat: 9:00 AM – 8:00 PM</p></div>
+        </div>
+        <div class="social-links">
+          <a href="#" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://wa.me/917248559734" target="_blank" class="social-btn whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#" class="social-btn"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="social-btn"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="contact-form-wrap" data-aos="fade-left">
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="form-group"><label for="name">Full Name</label><input type="text" id="name" placeholder="Your name" required/></div>
+            <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" placeholder="Your phone" required/></div>
+          </div>
+          <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" placeholder="Your email"/></div>
+          <div class="form-group">
+            <label for="service">Service Required</label>
+            <select id="service" required>
+              <option value="" disabled selected>Select a service</option>
+              <option>Digital Marketing</option>
+              <option>Graphic Design</option>
+              <option>Printing Solution</option>
+              <option>Complete Branding Package</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group"><label for="message">Your Message</label><textarea id="message" rows="4" placeholder="Tell us about your project…" required></textarea></div>
+          <button type="submit" class="btn btn-primary btn-full">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+          <p class="form-success" id="formSuccess">✅ Thank you! We'll get back to you soon.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<div class="map-section">
+  <iframe src="https://maps.google.com/maps?q=Ram+Ghat+Road+Aligarh+Uttar+Pradesh&output=embed"
+    width="100%" height="360" style="border:0;" allowfullscreen="" loading="lazy" title="Eprint Hub Location"></iframe>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top container">
+    <div class="footer-brand">
+      <a href="#home" class="logo">
+        <span class="logo-icon"><i class="fa-solid fa-print"></i></span>
+        <span class="logo-text">Eprint<span class="accent">Hub</span></span>
+      </a>
+      <p>Your one-stop destination for Digital Marketing, Graphic Design, and Premium Printing Solutions in Aligarh.</p>
+      <div class="social-links">
+        <a href="#" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://wa.me/917248559734" target="_blank" class="social-btn whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="#" class="social-btn"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Our Services</h4>
+      <ul>
+        <li><a href="#services">Digital Marketing</a></li>
+        <li><a href="#services">Social Media Marketing</a></li>
+        <li><a href="#services">SEO Services</a></li>
+        <li><a href="#services">Graphic Design</a></li>
+        <li><a href="#services">Logo Design</a></li>
+        <li><a href="#services">Flex Printing</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <h4>Contact Info</h4>
+      <p><i class="fa-solid fa-location-dot"></i> Ram Ghat Road, Aligarh, UP</p>
+      <p><i class="fa-solid fa-phone"></i> <a href="tel:7248559734">+91 72485 59734</a></p>
+      <p><i class="fa-solid fa-envelope"></i> <a href="mailto:eprinthub0@gmail.com">eprinthub0@gmail.com</a></p>
+      <p><i class="fa-solid fa-user-tie"></i> Founder: Imran Khan</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; <span id="year"></span> Eprint Hub. All Rights Reserved. | Designed with ❤️ in Aligarh</p>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/917248559734" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<!-- BACK TO TOP -->
+<button id="backToTop"><i class="fa-solid fa-chevron-up"></i></button>
+
+<script>
+// PRELOADER
+window.addEventListener('load',()=>{setTimeout(()=>document.getElementById('preloader').classList.add('hidden'),800)});
+// SCROLL
+const header=document.getElementById('header'),btn=document.getElementById('backToTop');
+window.addEventListener('scroll',()=>{header.classList.toggle('scrolled',scrollY>50);btn.classList.toggle('visible',scrollY>400)});
+// HAMBURGER
+const hbg=document.getElementById('hamburger'),nl=document.getElementById('navLinks');
+hbg.addEventListener('click',()=>{
+  nl.classList.toggle('open');
+  const b=hbg.querySelectorAll('span');
+  if(nl.classList.contains('open')){b[0].style.cssText='transform:rotate(45deg) translate(5px,5px)';b[1].style.cssText='opacity:0';b[2].style.cssText='transform:rotate(-45deg) translate(5px,-5px)'}
+  else b.forEach(x=>x.style.cssText='')
+});
+nl.querySelectorAll('.nav-link').forEach(l=>l.addEventListener('click',()=>{nl.classList.remove('open');hbg.querySelectorAll('span').forEach(x=>x.style.cssText='')}));
+// ACTIVE NAV
+const secs=document.querySelectorAll('section[id]');
+window.addEventListener('scroll',()=>{const y=scrollY+100;secs.forEach(s=>{const lk=document.querySelector(`.nav-link[href="#${s.id}"]`);if(lk)lk.classList.toggle('active',y>=s.offsetTop&&y<s.offsetTop+s.offsetHeight)})});
+// BACK TO TOP
+btn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+// COUNTER
+function runCounter(el){const t=+el.dataset.target,s=t/112;let c=0;const i=setInterval(()=>{c=Math.min(c+s,t);el.textContent=Math.floor(c);if(c>=t)clearInterval(i)},16)}
+let ran=false;new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting&&!ran){ran=true;document.querySelectorAll('.counter').forEach(runCounter)}})},{threshold:.5}).observe(document.querySelector('.hero-stats'));
+// AOS
+new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)setTimeout(()=>x.target.classList.add('aos-animate'),+(x.target.dataset.aosDelay||0))})},{threshold:.1,rootMargin:'0px 0px -60px 0px'}).observe&&document.querySelectorAll('[data-aos]').forEach(el=>new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)setTimeout(()=>x.target.classList.add('aos-animate'),+(x.target.dataset.aosDelay||0))})},{threshold:.1,rootMargin:'0px 0px -60px 0px'}).observe(el));
+// PORTFOLIO FILTER
+document.querySelectorAll('.filter-btn').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');const f=b.dataset.filter;document.querySelectorAll('.portfolio-item').forEach(i=>i.classList.toggle('hidden',f!=='all'&&i.dataset.category!==f))}));
+// FORM
+document.getElementById('contactForm').addEventListener('submit',e=>{e.preventDefault();const sb=e.target.querySelector('button');sb.textContent='Sending…';sb.disabled=true;setTimeout(()=>{document.getElementById('formSuccess').style.display='block';e.target.reset();sb.innerHTML='Send Message <i class="fa-solid fa-paper-plane"></i>';sb.disabled=false;setTimeout(()=>document.getElementById('formSuccess').style.display='none',5000)},1200)});
+// YEAR
+document.getElementById('year').textContent=new Date().getFullYear();
+// SMOOTH SCROLL
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}}));
+</script>
+</body>
+</html>
